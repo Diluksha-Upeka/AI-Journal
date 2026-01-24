@@ -8,10 +8,11 @@ A small day-by-day coding journal.
 - `day03/` - Structured Outputs (JSON)
 - `day04/` - Streamlit UI
 - `day05/` - AI Resume Dashboard
+- `day06/` - Deployed the App
 
 ![Resume Dashboard](day05/dashboard.png)
 
-``Last updated 23rd Jan 2026``
+``Last updated 24th Jan 2026``
 
 ## Run
 From the repo root:

@@ -1,5 +1,4 @@
 import streamlit as st
-import os
 import json # to handle JSON data
 import re
 from dotenv import load_dotenv
@@ -37,6 +36,16 @@ def _parse_llm_json(text: str) -> dict:
 
     return json.loads(candidate)
 
+
+def _hiring_decision_label(score: int) -> str:
+    if score >= 85:
+        return "Strong Hire"
+    if score >= 75:
+        return "Hire"
+    if score >= 60:
+        return "Consider (Needs Improvements)"
+    return "No Hire"
+
 if st.button("Optimize My Resume"):
     if resume_text:
         with st.spinner("Calculating ATS score..."):
@@ -52,10 +61,9 @@ Return ONLY a valid JSON object with exactly these keys:
 - score: integer from 0 to 100
 - missing_keywords: array of strings
 - summary: string (1 sentence)
-- hiring_decision: string, either Yes or No
 
 JSON format example (replace values, keep keys):
-{{"score":75,"missing_keywords":["Kubernetes"],"summary":"...","hiring_decision":"No"}}
+{{"score":75,"missing_keywords":["Kubernetes"],"summary":"..."}}
 
 Resume Text:
 {resume_text}
@@ -70,13 +78,16 @@ Resume Text:
             try:
                 data = _parse_llm_json(response.content)
 
+                score = int(data["score"])
+                hiring_decision = _hiring_decision_label(score)
+
                 col1, col2, col3 = st.columns(3)
 
                 with col1:
-                    st.metric(label="ATS Score", value=f"{data['score']}/100", delta = data['score'] - 75)
+                    st.metric(label="ATS Score", value=f"{score}/100", delta=score - 75)
 
                 with col2:
-                    st.metric(label="Hiring Decision", value=data['hiring_decision'])
+                    st.metric(label="Hiring Decision", value=hiring_decision)
 
                 with col3:
                     st.info(f"Summary: {data['summary']}")
