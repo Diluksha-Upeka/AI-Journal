@@ -13,9 +13,9 @@ llm = ChatGroq(
     temperature = 0.0 # Temp 0.0 is best for json
 )
 
-st.set_page_config(page_title="Resume Optimizr 📝✨", layout="wide")
+st.set_page_config(page_title="Resume Optimizer", layout="wide")
 
-st.title("Resume Optimizr 📝✨")
+st.title("Resume Optimizer 📝✨")
 st.subheader("ATS Optimization and Scoring System")
 
 resume_text = st.text_area("Paste your resume text here:", height=300)
