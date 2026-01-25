@@ -1,18 +1,30 @@
 # AI Journal
 
-A small day-by-day coding journal.
+Building projects using LangChain, Groq, Computer Vision, and Agents.
+
+## Featured Projects
+
+### [Day 05] Resume Optimizer
+A Streamlit dashboard that parses resumes into JSON and gives an ATS score using Llama 3.
+- **Live Demo**[https://ai-resume-diluksha.streamlit.app/]
+- **Tech Stack**: Python, Streamlit, LangChain, Groq API(Llama 3)
+- **Key Concepts**: Structured Output(JSON) and system prompts
 
 ## Structure
-- `day01/` - first entry
-- `day02/` - AI system Prompts
-- `day03/` - Structured Outputs (JSON)
-- `day04/` - Streamlit UI
-- `day05/` - AI Resume Dashboard
-- `day06/` - Deployed the App
+- `day01/` - first entry [View Code](./day01/main.py)
+- `day02/` - AI system Prompts [View Code](./day02/system_prompts.py)
+- `day03/` - Structured Outputs (JSON) [View Code](./day03/structured_output.py)
+- `day04/` - Streamlit UI [View Code](./day04/app.py)
+- `day05/` - AI Resume Dashboard [View Code](./day05/app.py)
+- `day06/` - Deployed the App [Live app](https://ai-resume-diluksha.streamlit.app/)
 
+## Day 05 - Resume Optimizer Dashboard
 ![Resume Dashboard](day05/dashboard.png)
 
-``Last updated 24th Jan 2026``
+## Tools Used
+- **Models**: Groq API (Llama 3)
+- **Frameworks**: LangChain, Streamlit
 
-## Run
-From the repo root:
+``Last updated 25th Jan 2026``
+
+
