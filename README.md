@@ -35,6 +35,6 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - python-dotenv
 - pillow
 
-``Last updated 25th Jan 2026``
+``Last updated 26th Jan 2026``
 
 
