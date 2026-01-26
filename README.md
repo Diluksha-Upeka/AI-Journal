@@ -17,6 +17,8 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - `day04/` - Streamlit UI [View Code](./day04/app.py)
 - `day05/` - AI Resume Dashboard [View Code](./day05/app.py)
 - `day06/` - Deployed the App [Live app](https://ai-resume-diluksha.streamlit.app/)
+- `day07/` - Worked on Documentation
+- `day08/` - Google Gemini Vision API [View Code](./day08/vision.py)
 
 ## Day 05 - Resume Optimizer Dashboard
 ![Resume Dashboard](day05/dashboard.png)
@@ -24,6 +26,14 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 ## Tools Used
 - **Models**: Groq API (Llama 3)
 - **Frameworks**: LangChain, Streamlit
+
+## Required Dependencies
+- langchain
+- streamlit
+- groq
+- google-generativeai
+- python-dotenv
+- pillow
 
 ``Last updated 25th Jan 2026``
 
