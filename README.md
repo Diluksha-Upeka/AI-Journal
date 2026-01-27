@@ -19,6 +19,7 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - `day06/` - Deployed the App [Live app](https://ai-resume-diluksha.streamlit.app/)
 - `day07/` - Worked on Documentation
 - `day08/` - Google Gemini Vision API [View Code](./day08/vision.py)
+- `day09/` - Real-time webcam feed analysis [View Code](./day09/cam_analyze.py)
 
 ## Day 05 - Resume Optimizer Dashboard
 ![Resume Dashboard](day05/dashboard.png)
@@ -34,7 +35,8 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - google-generativeai
 - python-dotenv
 - pillow
+- opencv-python
 
-``Last updated 26th Jan 2026``
+``Last updated 27th Jan 2026``
 
 
