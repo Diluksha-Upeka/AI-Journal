@@ -10,6 +10,14 @@ load_dotenv()
 client = google.genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 model_name = os.getenv("GOOGLE_GEMINI_MODEL", "gemini-2.5-flash")
 
+def log_event(report_text):
+    timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
+    with open("security_log.txt", "a", encoding="utf-8") as f:
+        f.write(f"[{timestamp}]\n")
+        f.write(report_text.strip())
+        f.write("\n" + "-"*50 + "\n")
+
+
 def start_surveillance():
     cap = cv2.VideoCapture(0)
 
@@ -51,6 +59,7 @@ def start_surveillance():
                 # Print the analysis
                 print("\n--- Surveillance Analysis ---")
                 print(response.text)
+                log_event(response.text)
                 print("------------------------------\n")
             
             except APIError as e:

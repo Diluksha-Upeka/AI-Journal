@@ -1,0 +1,30 @@
+[2026-01-28 18:31:52]
+```json
+{
+  "detected_objects": [
+    "person",
+    "curtains",
+    "curtain rod",
+    "window (implied)"
+  ],
+  "activity": "A person is present indoors in low light conditions. The person's face is largely obscured by shadow.",
+  "threat_level": "Medium",
+  "alert_required": true
+}
+```
+--------------------------------------------------
+[2026-01-28 18:32:07]
+```json
+{
+    "detected_objects": [
+        "person (adult male)",
+        "curtains",
+        "curtain rod",
+        "window (partially obscured)"
+    ],
+    "activity": "A person is present in the frame, looking towards the camera.",
+    "threat_level": "Low",
+    "alert_required": false
+}
+```
+--------------------------------------------------
