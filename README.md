@@ -20,6 +20,7 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - `day07/` - Worked on Documentation
 - `day08/` - Google Gemini Vision API [View Code](./day08/vision.py)
 - `day09/` - Real-time webcam feed analysis [View Code](./day09/cam_analyze.py)
+- `day10/` - Continuous video feed analysis [View Code](./day10/security_loop.py)
 
 ## Day 05 - Resume Optimizer Dashboard
 ![Resume Dashboard](day05/dashboard.png)
@@ -37,6 +38,6 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - pillow
 - opencv-python
 
-``Last updated 27th Jan 2026``
+``Last updated 28th Jan 2026``
 
 
