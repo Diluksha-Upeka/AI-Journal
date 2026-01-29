@@ -27,6 +27,9 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 ## Day 05 - Resume Optimizer Dashboard
 ![Resume Dashboard](day05/dashboard.png)
 
+## Day 10 - Surveillance Video Analysis Dashboard
+![Surveillance Dashboard](day10/Surveillance%20dashboard.png)
+
 ## Tools Used
 - **Models**: Groq API (Llama 3)
 - **Frameworks**: LangChain, Streamlit
@@ -40,6 +43,6 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - pillow
 - opencv-python
 
-``Last updated 28th Jan 2026``
+``Last updated 29th Jan 2026``
 
 
