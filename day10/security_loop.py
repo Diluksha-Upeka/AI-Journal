@@ -19,7 +19,13 @@ def log_event(report_text):
 
 
 def start_surveillance():
-    cap = cv2.VideoCapture(0)
+    video_source = "sample_video.mp4"
+    if os.path.exists(video_source):
+        cap = cv2.VideoCapture(video_source)
+        print(f"Using video file: {video_source}")
+    else:
+        cap = cv2.VideoCapture(0)
+        print("Sample video not found. Using webcam.")
 
     print("Security surveillance started. Press 'Ctrl+C' to stop.")
     print("Monitoring frequency: Every 5 seconds.")
@@ -29,8 +35,14 @@ def start_surveillance():
             # Capture a single frame
             ret, frame = cap.read()
             if not ret:
-                print("Error: Could not capture frame.")
-                break
+                # If using a file, loop back to start
+                if os.path.exists(video_source):
+                    print("Video ended, restarting loop...")
+                    cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                    continue
+                else:
+                    print("Error: Could not capture frame.")
+                    break
 
             # Save temporary image
             cv2.imwrite("current_view.jpg", frame)
