@@ -56,10 +56,32 @@ def start_surveillance():
                     contents=[prompt, img]
                 )
 
+                # Extract JSON from response (remove markdown code blocks if present)
+                response_text = response.text
+                if "```json" in response_text:
+                    start = response_text.find("```json") + 7
+                    end = response_text.find("```", start)
+                    response_text = response_text[start:end].strip()
+                elif "```" in response_text:
+                    start = response_text.find("```") + 3
+                    end = response_text.find("```", start)
+                    response_text = response_text[start:end].strip()
+
+                # Save Data frontend will read this (atomic write)
+                temp_json = "latest_scan.json.tmp"
+                with open(temp_json, "w") as f:
+                    f.write(response_text)
+                os.replace(temp_json, "latest_scan.json")  # Atomic operation
+                    
+                # Copy the frame for dashboard display (atomic write)
+                temp_img = "current_view.jpg.tmp"
+                cv2.imwrite(temp_img, frame)
+                os.replace(temp_img, "current_view.jpg")  # Atomic operation
+                    
                 # Print the analysis
                 print("\n--- Surveillance Analysis ---")
-                print(response.text)
-                log_event(response.text)
+                print(response_text)
+                log_event(response_text)
                 print("------------------------------\n")
             
             except APIError as e:

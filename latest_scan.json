@@ -1,0 +1,11 @@
+{
+  "detected_objects": [
+    "Person",
+    "Window",
+    "Curtains",
+    "Outdoor foliage"
+  ],
+  "activity": "A person is present in the foreground, partially obscured by shadows, appearing to look directly at the camera. No specific actions or movements are discernible due to the low lighting.",
+  "threat_level": "Low",
+  "alert_required": true
+}

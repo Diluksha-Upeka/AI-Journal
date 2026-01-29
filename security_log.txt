@@ -28,3 +28,77 @@
 }
 ```
 --------------------------------------------------
+[2026-01-29 17:07:03]
+```json
+{
+  "detected_objects": [
+    "person",
+    "curtain",
+    "window"
+  ],
+  "activity": "A person is present, looking directly towards the camera in a dimly lit environment.",
+  "threat_level": "Low",
+  "alert_required": false
+}
+```
+--------------------------------------------------
+[2026-01-29 17:07:16]
+```json
+{
+  "detected_objects": [
+    "person",
+    "facial hair (mustache, beard)",
+    "hair",
+    "dark background"
+  ],
+  "activity": "An individual is present, stationary, and looking towards the camera.",
+  "threat_level": "Low",
+  "alert_required": false
+}
+```
+--------------------------------------------------
+[2026-01-29 17:07:31]
+```json
+{
+  "detected_objects": [
+    "person (adult male)",
+    "wall or headboard (background)"
+  ],
+  "activity": "A person is present and looking directly into the camera. No other specific activity is discernible due to image quality.",
+  "threat_level": "Low",
+  "alert_required": true
+}
+```
+--------------------------------------------------
+[2026-01-29 17:10:30]
+{
+  "detected_objects": [
+    "Person (adult male)",
+    "Curly hair",
+    "Facial hair (beard/mustache)",
+    "Indeterminate background (appears to be an indoor setting with a light source above/behind)"
+  ],
+  "activity": "A person is present, looking directly towards the camera. The lighting is low and the image is blurry, suggesting poor visibility or a low-light environment.",
+  "threat_level": "Low",
+  "alert_required": false
+}
+--------------------------------------------------
+[2026-01-29 17:10:50]
+{
+    "detected_objects": [
+        "person",
+        "hands"
+    ],
+    "activity": "A person is present, looking directly at the security camera. Their hands are raised above their head, possibly interacting with a bright light source or attempting to obscure the top of the camera's view.",
+    "threat_level": "Low",
+    "alert_required": true
+}
+--------------------------------------------------
+[2026-01-29 17:11:03]
+{
+  "detected_objects": [],
+  "activity": "No discernible activity detected. The feed appears to show a mostly uniform grey surface, possibly out of focus or in extremely low light, with a faint, indistinct darker area in the bottom right corner that does not form a recognizable object.",
+  "threat_level": "Low",
+  "alert_required": false
+}
+--------------------------------------------------
