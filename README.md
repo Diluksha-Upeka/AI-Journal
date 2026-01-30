@@ -23,6 +23,7 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - `day09/` - Real-time webcam feed analysis [View Code](./day09/cam_analyze.py)
 - `day10/` - Continuous video feed analysis [View Code](./day10/security_loop.py)
 - `day11/` - Dashboard UI for video analysis [View Code](./day10/dashboard.py)
+- `day12/` - Added text-to-speech alerts [View Code](./day10/dashboard.py)
 
 ## Day 05 - Resume Optimizer Dashboard
 ![Resume Dashboard](day05/dashboard.png)
@@ -42,7 +43,8 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - python-dotenv
 - pillow
 - opencv-python
+- pyttsx3
 
-``Last updated 29th Jan 2026``
+``Last updated 30th Jan 2026``
 
 
