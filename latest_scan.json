@@ -1,19 +1,5 @@
 {
-  "detected_objects": [
-    "man",
-    "woman",
-    "briefcase",
-    "tablet",
-    "hallway",
-    "multiple doors",
-    "door handles",
-    "windows on doors",
-    "carpeted floor",
-    "ceiling lights",
-    "security camera overlay text (CAM 02 - HALLWAY WEST, 10:03:28, Veo)",
-    "security camera icon"
-  ],
-  "activity": "Two individuals, a man and a woman, are walking together down a well-lit office hallway. The man is carrying a briefcase, and the woman is holding a tablet device. They appear to be engaged in a conversation or proceeding to a destination.",
-  "threat_level": "Low",
-  "alert_required": false
+    "activity": "A bare-chested male individual is looking directly at the camera. He is holding a small, blue, cylindrical object (possibly a vape pen or bottle) in his raised right hand.",
+    "threat_level": "Low",
+    "alert_required": "Unidentified presence detected. Immediate attention required."
 }

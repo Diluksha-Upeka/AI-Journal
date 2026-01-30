@@ -3,8 +3,13 @@ import time
 import json
 import os
 from PIL import Image
+import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Surveillance Dashboard", layout="wide", page_icon="🛡️")
+
+# Initialize session state for tracking alerts
+if 'last_alert' not in st.session_state:
+    st.session_state.last_alert = ""
 
 # CSS for Modern Security Dashboard UI
 st.markdown("""
@@ -162,8 +167,36 @@ while True:
                         st.caption("No objects detected in current frame.")
                     
                     # 4. Critical Alert
-                    if data.get("alert_required"):
-                        st.error("SECURITY ALERT: IMMEDIATE ATTENTION REQUIRED")
+                    alert_msg = data.get("alert_required", "")
+                    if alert_msg and alert_msg != "No alert":
+                        st.error(f"⚠️ SECURITY ALERT: {alert_msg}")
+                        
+                        # Trigger voice alert if it's a new alert
+                        if alert_msg != st.session_state.last_alert:
+                            st.session_state.last_alert = alert_msg
+                            # Use browser's speech synthesis with a component
+                            speech_html = f"""
+                            <script>
+                                (function() {{
+                                    if ('speechSynthesis' in window) {{
+                                        // Cancel any ongoing speech
+                                        window.speechSynthesis.cancel();
+                                        
+                                        // Create and speak the message
+                                        const utterance = new SpeechSynthesisUtterance("{alert_msg.replace('"', "'")}");
+                                        utterance.rate = 1.0;
+                                        utterance.pitch = 1.0;
+                                        utterance.volume = 1.0;
+                                        
+                                        // Wait a bit to ensure it works
+                                        setTimeout(() => {{
+                                            window.speechSynthesis.speak(utterance);
+                                        }}, 100);
+                                    }}
+                                }})();
+                            </script>
+                            """
+                            components.html(speech_html, height=0)
                     
                     # Timestamp
                     try:

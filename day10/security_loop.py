@@ -2,6 +2,7 @@ import cv2
 import time
 import os
 import google.genai
+import pyttsx3
 from google.genai.errors import APIError
 from dotenv import load_dotenv
 from PIL import Image
@@ -10,6 +11,18 @@ load_dotenv()
 client = google.genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 model_name = os.getenv("GOOGLE_GEMINI_MODEL", "gemini-2.5-flash")
 
+# Initialize the voice engine
+engine = pyttsx3.init()
+engine.setProperty('rate', 150)  # Speech rate
+
+def speak_warning(text):
+    """The Agentic Action: Speaking to the real world"""
+    print(f"[Voice Alert]: {text}")
+    engine.say(text)        # Queue the text to be spoken
+    engine.runAndWait()     # runAndWait() blocks execution until speech is complete
+
+
+# Log events to a file 
 def log_event(report_text):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
     with open("security_log.txt", "a", encoding="utf-8") as f:
@@ -18,6 +31,7 @@ def log_event(report_text):
         f.write("\n" + "-"*50 + "\n")
 
 
+# Main surveillance loop
 def start_surveillance():
     video_source = "sample_video.mp4"
     if os.path.exists(video_source):
@@ -55,10 +69,9 @@ def start_surveillance():
             prompt = """
             Analyze this security camera feed. Return a valid JSON object with:
             {
-                "detected_objects": [list of visible items/people],
                 "activity": "what is happening",
                 "threat_level": "Low/Medium/High",
-                "alert_required": true/false
+                "alert_required": "A short, scary warning message if threat_level is low, Medium or High, else 'No alert'",
             }
             """
 
@@ -95,6 +108,17 @@ def start_surveillance():
                 print(response_text)
                 log_event(response_text)
                 print("------------------------------\n")
+                
+                # Trigger voice alert if needed
+                import json
+                try:
+                    analysis = json.loads(response_text)
+                    if analysis.get("threat_level") in ["Medium", "High"]:
+                        alert_msg = analysis.get("alert_required", "Security alert detected")
+                        if alert_msg and alert_msg != "No alert":
+                            speak_warning(alert_msg)
+                except json.JSONDecodeError:
+                    print("[Warning] Could not parse JSON response for voice alert")
             
             except APIError as e:
                 # Handle API errors gracefully (503, rate limits, etc.)
