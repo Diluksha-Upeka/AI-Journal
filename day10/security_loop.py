@@ -1,6 +1,8 @@
 import cv2
 import time
 import os
+import json
+import re
 import google.genai
 import pyttsx3
 from google.genai.errors import APIError
@@ -12,14 +14,49 @@ client = google.genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 model_name = os.getenv("GOOGLE_GEMINI_MODEL", "gemini-2.5-flash")
 
 # Initialize the voice engine
-engine = pyttsx3.init()
+try:
+    # On Windows, SAPI5 is the most reliable backend.
+    engine = pyttsx3.init(driverName="sapi5")
+except Exception:
+    engine = pyttsx3.init()
 engine.setProperty('rate', 150)  # Speech rate
+engine.setProperty('volume', 1.0)
+
+
+def _extract_json_object(text: str) -> str:
+    """Best-effort extraction of a JSON object from model output."""
+    cleaned = text.strip()
+
+    # Remove markdown code fences if present
+    if "```" in cleaned:
+        if "```json" in cleaned:
+            start = cleaned.find("```json") + 7
+            end = cleaned.find("```", start)
+            cleaned = cleaned[start:end].strip()
+        else:
+            start = cleaned.find("```") + 3
+            end = cleaned.find("```", start)
+            cleaned = cleaned[start:end].strip()
+
+    # If the model wrapped extra prose around JSON, grab the first {...} block.
+    first = cleaned.find("{")
+    last = cleaned.rfind("}")
+    if first != -1 and last != -1 and last > first:
+        cleaned = cleaned[first:last + 1]
+
+    # Remove common "trailing comma" issues: {"a": 1,}
+    cleaned = re.sub(r",\s*([}\]])", r"\1", cleaned)
+
+    return cleaned
 
 def speak_warning(text):
     """The Agentic Action: Speaking to the real world"""
     print(f"[Voice Alert]: {text}")
-    engine.say(text)        # Queue the text to be spoken
-    engine.runAndWait()     # runAndWait() blocks execution until speech is complete
+    try:
+        engine.say(text)        # Queue the text to be spoken
+        engine.runAndWait()     # runAndWait() blocks execution until speech is complete
+    except Exception as e:
+        print(f"[Voice Error] {type(e).__name__}: {e}")
 
 
 # Log events to a file 
@@ -43,6 +80,8 @@ def start_surveillance():
 
     print("Security surveillance started. Press 'Ctrl+C' to stop.")
     print("Monitoring frequency: Every 5 seconds.")
+    
+    last_alert = ""  # Track last spoken alert to avoid repeating
 
     try:
         while True:
@@ -67,13 +106,15 @@ def start_surveillance():
 
             # Structure the prompt for analysis
             prompt = """
-            Analyze this security camera feed. Return a valid JSON object with:
-            {
-                "activity": "what is happening",
-                "threat_level": "Low/Medium/High",
-                "alert_required": "A short, scary warning message if threat_level is low, Medium or High, else 'No alert'",
-            }
-            """
+Analyze this security camera feed as a security system.
+
+Return ONLY a single, strict JSON object (no markdown fences, no commentary, no trailing commas) with exactly these keys:
+{
+  "activity": "what is happening",
+  "threat_level": "Low" | "Medium" | "High",
+  "alert_required": "A short, urgent spoken warning message. ALWAYS provide a warning for ANY activity detected (even Low threat). Examples: 'Unauthorized person detected', 'Movement in restricted area', 'Unknown individual approaching'. Only use 'No alert' if the frame is completely empty with zero activity."
+}
+            """.strip()
 
             try:
                 response = client.models.generate_content(
@@ -81,16 +122,7 @@ def start_surveillance():
                     contents=[prompt, img]
                 )
 
-                # Extract JSON from response (remove markdown code blocks if present)
-                response_text = response.text
-                if "```json" in response_text:
-                    start = response_text.find("```json") + 7
-                    end = response_text.find("```", start)
-                    response_text = response_text[start:end].strip()
-                elif "```" in response_text:
-                    start = response_text.find("```") + 3
-                    end = response_text.find("```", start)
-                    response_text = response_text[start:end].strip()
+                response_text = _extract_json_object(response.text)
 
                 # Save Data frontend will read this (atomic write)
                 temp_json = "latest_scan.json.tmp"
@@ -110,13 +142,21 @@ def start_surveillance():
                 print("------------------------------\n")
                 
                 # Trigger voice alert if needed
-                import json
                 try:
                     analysis = json.loads(response_text)
-                    if analysis.get("threat_level") in ["Medium", "High"]:
-                        alert_msg = analysis.get("alert_required", "Security alert detected")
-                        if alert_msg and alert_msg != "No alert":
+                    alert_msg = (analysis.get("alert_required") or "").strip()  # Get alert message
+                    print(f"[DEBUG] Alert message: '{alert_msg}'")
+                    if alert_msg and alert_msg.lower() != "no alert":
+                        # Only speak if it's a different alert than last time
+                        if alert_msg != last_alert:
+                            print(f"[DEBUG] Triggering voice for: {alert_msg}")
                             speak_warning(alert_msg)
+                            last_alert = alert_msg
+                        else:
+                            print("[DEBUG] Skipping voice (same alert as previous)")
+                    else:
+                        print("[DEBUG] No voice triggered (alert is 'No alert' or empty)")
+                        last_alert = ""  # Reset when no alert
                 except json.JSONDecodeError:
                     print("[Warning] Could not parse JSON response for voice alert")
             
