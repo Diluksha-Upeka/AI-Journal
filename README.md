@@ -29,6 +29,7 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 ![Resume Dashboard](day05/dashboard.png)
 
 ## Day 10 - Surveillance Video Analysis Dashboard
+![Surveillance Readme](./day10/Surveillance_README.md)
 ![Surveillance Dashboard](day10/Surveillance%20dashboard.png)
 
 ## Tools Used
@@ -45,6 +46,6 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - opencv-python
 - pyttsx3
 
-``Last updated 30th Jan 2026``
+``Last updated 31st Jan 2026``
 
 
