@@ -3,3 +3,7 @@ python-dotenv
 langchain-groq
 langchain-core
 opencv-python
+google-genai
+pinecone
+pillow
+pyttsx3
