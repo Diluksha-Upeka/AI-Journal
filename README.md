@@ -28,6 +28,7 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 
 - `day14/` - Setting up Pinecone vector DB 
 - `day15/` - Vector DB memory storage [View Code](./day15/store_memory.py)
+- `day16/` - Memory retrieval system [View Code](./day15/retrieve_memory.py)
 
 
 ## Day 05 - Resume Optimizer Dashboard
@@ -53,6 +54,6 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - pinecone
 - google-genai
 
-``Last updated 02nd Feb 2026``
+``Last updated 03rd Feb 2026``
 
 
