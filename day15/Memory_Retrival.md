@@ -1,33 +1,47 @@
-Google converts text to numbers
+# Memory Retrieval System
 
-Pinecone stores and searches those numbers
+## Architecture
 
+**Google AI** → Converts text to 768-dimensional vectors  
+**Pinecone** → Stores and searches vectors using cosine similarity
+
+---
+
+## How It Works
+
+### 1. Query Embedding
+```python
 result = client.models.embed_content(
     model="models/text-embedding-004",
     contents=[query]
 )
 query_vector = result.embeddings[0].values
+```
+Transforms your question into a 768-number vector representing semantic meaning.
 
-Takes your question ("What is my academic focus?")
-Converts it to a vector (list of 768 numbers that represent the meaning)
+### 2. Vector Search
+```python
+search_results = index.query(
+    vector=query_vector,
+    top_k=1,
+    include_metadata=True
+)
+```
+- Compares query vector against all stored vectors
+- Returns closest match by cosine similarity
+- `top_k=1` retrieves single best result
 
-Search Pinecone
+### 3. Result
+- **Score**: 0.0 (unrelated) → 1.0 (identical)
+- **Text**: Original stored fact
 
-Searches the database by comparing your query vector to all stored vectors
-Finds the most similar memory using mathematical distance (cosine similarity)
-top_k=1 means "give me just the single best match"
+---
 
-If a match is found, shows:
-Confidence score: How similar the meanings are (0.0 = not related, 1.0 = identical)
-The fact: The original text that was stored
+## Semantic vs Keyword Search
 
-Why This Works:
-Traditional Search:
+| Traditional Search | Vector Search |
+|-------------------|---------------|
+| "academic focus" → Matches exact words | "academic focus" → Finds "study CS", "engineering major", etc. |
+| Brittle, literal | Understands meaning |
 
-Query: "What is my academic focus?"
-Only finds exact words like "academic" or "focus"
-Vector Search (This Script):
-
-Query: "What is my academic focus?"
-Finds similar meanings like "I study computer science" or "My major is engineering"
-Works because similar meanings = similar vectors
+**Key Insight**: Similar meanings produce similar vectors, enabling semantic discovery beyond exact matches.
