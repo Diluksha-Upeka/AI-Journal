@@ -27,18 +27,28 @@ def search_memory(query):
     # Search in Pinecone
     search_results = index.query(
         vector=query_vector,
-        top_k=1,                # Single best match
+        top_k=3,                # Get top 3 matches
         include_metadata=True # This gives us the text back, not just the ID
     )
 
-    # Display results
+    # Display results with confidence threshold
+    CONFIDENCE_THRESHOLD = 0.5  # Adjusted for better recall
+    
     if search_results['matches']:
-        best_match = search_results['matches'][0]
-        score = best_match['score'] # How confident is the AI? (0.0 to 1.0)
-        text = best_match['metadata']['text']
+        print(f"\n All matches found:")
+        for match in search_results['matches']:
+            print(f"   [{match['score']:.3f}] {match['metadata']['text']}")
         
-        print(f" Found match (Confidence: {score:.2f})")
-        print(f" Fact: {text}")
+        relevant_matches = [m for m in search_results['matches'] if m['score'] >= CONFIDENCE_THRESHOLD]
+        
+        if relevant_matches:
+            print(f"\n Relevant matches (≥{CONFIDENCE_THRESHOLD}):\n")
+            for i, match in enumerate(relevant_matches, 1):
+                score = match['score']
+                text = match['metadata']['text']
+                print(f" {i}. [{score:.3f}] {text}")
+        else:
+            print(f"\n No matches above threshold ({CONFIDENCE_THRESHOLD})")
     else:
         print(" No relevant memories found.")
 
