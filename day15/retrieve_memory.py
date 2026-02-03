@@ -12,7 +12,7 @@ model_name = os.getenv("GOOGLE_GEMINI_MODEL", "gemini-2.5-flash")
 
 # 3. Setup Pinecone (The Database)
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-index = pc.Index("memory-index")  # The name of the Pinecone index
+index = pc.Index("memory-index")  # The name of the Pinecone index (database)
 
 def search_memory(query):
     print(f"Searching for: '{query}'...")
