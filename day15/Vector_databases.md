@@ -1,25 +1,28 @@
-# The embedder
-(How text become numbers - RAG)
+# The Embedder
+*How text becomes numbers - RAG*
 
-Embedding 
-    A sentence-> long list of numbers (vector)
+## Embedding
+A sentence → long list of numbers (vector)
 
-Vector space
-    Each number is a dimension
-    Each sentence is a point in that space
-    Distance = meaning difference
+## Vector Space
+- Each number represents a dimension
+- Each sentence is a point in that space
+- **Distance = meaning difference**
+    - Closer points = similar meaning
+    - Farther points = different meaning
 
-    closer points = similar meaning
-    farther points = different meaning
+## Vector Databases
+- Store vectors efficiently
+- Enable fast similarity searches
+- Essential for RAG (Retrieval-Augmented Generation)
 
-Vector databases
-    Store vectors
-    Fast search for similar vectors
-    Used in RAG (Retrieval-Augmented Generation)
+## Why 768 Numbers?
+Common embedding dimension size that balances detail and computational efficiency
 
-Why 768 numbers?
-    Common size for embeddings
-    Balances detail and efficiency
-
-How it works
- Text input -> Embedder model(Google gemini, OpenAI, etc.) -> Number vector (768 dims) -> Store in vector DB (Pinecone, Weaviate, etc.)
+## How It Works
+```
+Text Input 
+    → Embedder Model (Google Gemini, OpenAI, etc.)
+    → Number Vector (768 dimensions)
+    → Vector Database (Pinecone, Weaviate, etc.)
+```
