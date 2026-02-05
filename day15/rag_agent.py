@@ -21,13 +21,14 @@ def get_context(query):
 
     results = index.query(
         vector=query_vector,
-        top_k=1,
+        top_k=5,
         include_metadata=True
     )
 
     if results['matches']:
-        top_match = results['matches'][0]
-        return top_match['metadata']['text']
+        # Combine multiple relevant chunks for better context
+        contexts = [match['metadata']['text'] for match in results['matches']]
+        return "\n\n".join(contexts)
     return "No relevant context found."
 
 def ask_rag_bot(user_question):
@@ -56,4 +57,4 @@ def ask_rag_bot(user_question):
     print(f"Answer: {response.text}")
 
 if __name__ == "__main__":
-    ask_rag_bot("Where does the user study?")
+    ask_rag_bot("Does user know Jira?")

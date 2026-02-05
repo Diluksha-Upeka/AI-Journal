@@ -54,6 +54,7 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - pyttsx3
 - pinecone
 - google-genai
+- pypdf
 
 ``Last updated 04th Feb 2026``
 
