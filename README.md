@@ -10,6 +10,12 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - **Tech Stack**: Python, Streamlit, LangChain, Groq API(Llama 3)
 - **Key Concepts**: Structured Output(JSON) and system prompts
 
+### [Day 20] ContexIQ - RAG Application
+A Streamlit app that allows users to chat with their PDF documents using Retrieval-Augmented Generation 
+- **Live Demo**: [https://contextiq-rag.streamlit.app/]
+- **Tech Stack**: Python, Streamlit, LangChain, Groq API(Llama 3), Pinecone
+- **Key Concepts**: Vector Databases, RAG Agents, PDF Ingestion
+
 ## Structure
 - `day01/` - first entry [View Code](./day01/main.py)
 - `day02/` - AI system Prompts [View Code](./day02/system_prompts.py)
@@ -30,6 +36,9 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - `day15/` - Vector DB memory storage [View Code](./day15/store_memory.py) [View Doc](./day15/Vector_databases.md)
 - `day16/` - Memory retrieval system [View Code](./day15/retrieve_memory.py) [View Doc](./day15/Memory_Retrival.md)
 - `day17/` - RAG Agent implementation [View Code](./day15/rag_agent.py) [View Doc](./day15/rag.md)
+- `day18/` - Ingestion pipeline for RAG [View Code](./day15/ingest_pdf.py)
+- `day19/` - ContexIQ - Chat with pdfs using RAG app development
+- `day20/` - Deployment of RAG Application [Live app](https://contextiq-rag.streamlit.app/)
 
 
 ## Day 05 - Resume Optimizer Dashboard
@@ -38,6 +47,9 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 ## Day 10 - Surveillance Video Analysis Dashboard
 [Surveillance Readme](./day10/Surveillance_README.md)
 ![Surveillance Dashboard](day10/Surveillance%20dashboard.png)
+
+## Day 20 - ContexIQ RAG Application
+![ContexIQ Dashboard](day20/dashboard.png)
 
 ## Tools Used
 - **Models**: Groq API (Llama 3)
@@ -56,6 +68,6 @@ A Streamlit dashboard that parses resumes into JSON and gives an ATS score using
 - google-genai
 - pypdf
 
-``Last updated 04th Feb 2026``
+``Last updated 07th Feb 2026``
 
 
