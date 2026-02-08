@@ -56,6 +56,9 @@ A Streamlit app that allows users to chat with their PDF documents using Retriev
 - **Models**: Groq API (Llama 3)
 - **Frameworks**: LangChain, Streamlit
 
+### Travily Search Agent
+A LangChain agent that uses the Tavily Search tool to fetch real-time information from the web.
+
 ## Required Dependencies
 - langchain
 - streamlit
