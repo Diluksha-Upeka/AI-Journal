@@ -39,6 +39,7 @@ A Streamlit app that allows users to chat with their PDF documents using Retriev
 - `day18/` - Ingestion pipeline for RAG [View Code](./day15/ingest_pdf.py)
 - `day19/` - ContexIQ - Chat with pdfs using RAG app development
 - `day20/` - Deployment of RAG Application [Live app](https://contextiq-rag.streamlit.app/)
+- `day21/` - Agent with Internet Search capability [View Code](./day21/search_agent.py)
 
 
 ## Day 05 - Resume Optimizer Dashboard
@@ -68,6 +69,6 @@ A Streamlit app that allows users to chat with their PDF documents using Retriev
 - google-genai
 - pypdf
 
-``Last updated 07th Feb 2026``
+``Last updated 08th Feb 2026``
 
 
