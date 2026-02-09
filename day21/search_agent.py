@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_community.tools.tavily_search import TavilySearchResults
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 
 # 1. Load Keys
 load_dotenv()
@@ -19,12 +19,9 @@ search_tool = TavilySearchResults()
 tools = [search_tool]
 
 # 4. Initialize the Agent
-# Using LangGraph's create_react_agent (modern approach)
+# Using LangChain's create_agent (modern approach)
 # This agent will automatically use the ReAct (Reasoning + Acting) pattern
-agent = create_react_agent(
-    model=llm,
-    tools=tools
-)
+agent = create_agent(llm, tools)
 
 if __name__ == "__main__":
     print("Agent is ready. Asking about current events...")
