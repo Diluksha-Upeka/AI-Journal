@@ -15,7 +15,7 @@ llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
 # We give the AI a "Search Tool"
 search_tool = TavilySearchResults()
 
-# We put tools in a list (we can add a Calculator later!)
+# We put tools in a list 
 tools = [search_tool]
 
 # 4. Initialize the Agent
