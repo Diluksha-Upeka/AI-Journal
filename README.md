@@ -39,8 +39,9 @@ A Streamlit app that allows users to chat with their PDF documents using Retriev
 - `day18/` - Ingestion pipeline for RAG [View Code](./day15/ingest_pdf.py)
 - `day19/` - ContexIQ - Chat with pdfs using RAG app development
 - `day20/` - Deployment of RAG Application [Live app](https://contextiq-rag.streamlit.app/)
-- `day21/` - Agent with Internet Search capability [View Code](./day21/search_agent.py)
 
+- `day21/` - Agent with Internet Search capability [View Code](./day21/search_agent.py)
+- `day22/` - Multi-tool Agent with reasoning [View Code](./day22/multi_agent.py)
 
 ## Day 05 - Resume Optimizer Dashboard
 ![Resume Dashboard](day05/dashboard.png)
@@ -71,7 +72,8 @@ A LangChain agent that uses the Tavily Search tool to fetch real-time informatio
 - pinecone
 - google-genai
 - pypdf
+- numexpr
 
-``Last updated 08th Feb 2026``
+``Last updated 09th Feb 2026``
 
 
