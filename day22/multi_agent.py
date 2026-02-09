@@ -45,11 +45,13 @@ if __name__ == "__main__":
     print("Agent is ready. Solving complex problem...")
     print("="*50)
     
+    # Homework: The "Physics" Test
     # A generic LLM would fail this completely.
     # It requires: 
-    # 1. Search (Find age)
-    # 2. Math (Calculate power)
-    query = "Who is the current President of France? Take his age and raise it to the power of 0.23."
+    # 1. Search (Find mass of the moon in kg)
+    # 2. Search (Find speed of light in m/s)
+    # 3. Math (Divide the two values)
+    query = "What is the mass of the moon in kg divided by the speed of light?"
     
     print(f"\nQuery: {query}\n")
     
@@ -74,6 +76,6 @@ if __name__ == "__main__":
             
             # Show Tool's Observation
             elif message_type == "ToolMessage":
-                print(f"  Observation: {last_message.content[:200]}..." if len(last_message.content) > 200 else f"👁️  Observation: {last_message.content}")
+                print(f"  Observation: {last_message.content[:200]}..." if len(last_message.content) > 200 else f"  Observation: {last_message.content}")
     
     print("\n" + "="*50)
