@@ -42,6 +42,7 @@ A Streamlit app that allows users to chat with their PDF documents using Retriev
 
 - `day21/` - Agent with Internet Search capability [View Code](./day21/search_agent.py)
 - `day22/` - Multi-tool Agent with reasoning [View Code](./day22/multi_agent.py)
+- `day23/` - Coder Agent with Python REPL [View Code](./day23/coder_agent.py) [View Doc](./day23/README.md)
 
 ## Day 05 - Resume Optimizer Dashboard
 ![Resume Dashboard](day05/dashboard.png)
@@ -62,6 +63,8 @@ A LangChain agent that uses the Tavily Search tool to fetch real-time informatio
 
 ## Required Dependencies
 - langchain
+- langchain-experimental
+- langchainhub
 - streamlit
 - groq
 - google-generativeai
@@ -74,6 +77,6 @@ A LangChain agent that uses the Tavily Search tool to fetch real-time informatio
 - pypdf
 - numexpr
 
-``Last updated 09th Feb 2026``
+``Last updated 11th Feb 2026``
 
 
