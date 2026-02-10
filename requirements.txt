@@ -2,8 +2,13 @@ streamlit
 python-dotenv
 langchain-groq
 langchain-core
+langchain
+langchain-experimental
+langchainhub
 opencv-python
 google-genai
 pinecone
 pillow
 pyttsx3
+pypdf
+numexpr
