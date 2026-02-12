@@ -44,6 +44,8 @@ A Streamlit app that allows users to chat with their PDF documents using Retriev
 - `day22/` - Multi-tool Agent with reasoning [View Code](./day22/multi_agent.py)
 - `day23/` - Coder Agent with Python REPL [View Code](./day23/coder_agent.py) [View Doc](./day23/README.md)
 - `day24/` - Agent with multiple tools (search, code, calculator) 
+- `day25/` - Final project - AI Personal Assistant with multi-tool capabilities
+
 
 ## Day 05 - Resume Optimizer Dashboard
 ![Resume Dashboard](day05/dashboard.png)
