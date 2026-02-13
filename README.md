@@ -29,7 +29,7 @@ A Streamlit app that enables users to chat with PDF documents using Retrieval-Au
 - **Tech Stack**: Python, Streamlit, LangChain, Groq API (Llama 3), Pinecone
 - **Key Concepts**: Vector Databases, RAG Agents, PDF Ingestion
 
-### [Day 25] AI Analyst Application
+## Day 25 AI Analyst Application
 A Streamlit app that allows users to upload datasets and ask questions, with the AI agent performing data analysis and visualization.
 
 ![AI Analyst Dashboard](csv.png)
