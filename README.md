@@ -44,7 +44,7 @@ A Streamlit app that allows users to chat with their PDF documents using Retriev
 - `day22/` - Multi-tool Agent with reasoning [View Code](./day22/multi_agent.py)
 - `day23/` - Coder Agent with Python REPL [View Code](./day23/coder_agent.py) [View Doc](./day23/README.md)
 - `day24/` - Agent with multiple tools (search, code, calculator) 
-- `day25/` - Final project - AI Personal Assistant with multi-tool capabilities
+- `day25/` - AI analyst application [View Code](./day25/analyst_app.py) [GitHub Repo](https://github.com/Diluksha-Upeka/ai-analyst)
 
 
 ## Day 05 - Resume Optimizer Dashboard
@@ -80,6 +80,6 @@ A LangChain agent that uses the Tavily Search tool to fetch real-time informatio
 - pypdf
 - numexpr
 
-``Last updated 11th Feb 2026``
+``Last updated 13th Feb 2026``
 
 
