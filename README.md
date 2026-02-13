@@ -5,16 +5,37 @@ Building projects using LangChain, Groq, Computer Vision, and Agents.
 ## Featured Projects
 
 ### [Day 05] Resume Optimizer
-A Streamlit dashboard that parses resumes into JSON and gives an ATS score using Llama 3.
-- **Live Demo**[https://ai-resume-diluksha.streamlit.app/]
-- **Tech Stack**: Python, Streamlit, LangChain, Groq API(Llama 3)
-- **Key Concepts**: Structured Output(JSON) and system prompts
+A Streamlit dashboard that parses resumes into JSON and generates ATS scores using Llama 3.
+
+![Resume Dashboard](day05/dashboard.png)
+
+- **Live Demo**: [https://ai-resume-diluksha.streamlit.app/](https://ai-resume-diluksha.streamlit.app/)
+- **Tech Stack**: Python, Streamlit, LangChain, Groq API (Llama 3)
+- **Key Concepts**: Structured Output (JSON), System Prompts
+
+## Day 10 - Surveillance Video Analysis Dashboard
+
+![Surveillance Dashboard](day10/Surveillance%20dashboard.png)
+
+- **Tech Stack**: Python, OpenCV, LangChain, Groq API (Llama 3), Streamlit
+- **Key Concepts**: Real-time video processing, AI-generated alerts, Text-to-Speech
 
 ### [Day 20] ContexIQ - RAG Application
-A Streamlit app that allows users to chat with their PDF documents using Retrieval-Augmented Generation 
-- **Live Demo**: [https://contextiq-rag.streamlit.app/]
-- **Tech Stack**: Python, Streamlit, LangChain, Groq API(Llama 3), Pinecone
+A Streamlit app that enables users to chat with PDF documents using Retrieval-Augmented Generation.
+
+![ContexIQ Dashboard](day20/dashboard.png)
+
+- **Live Demo**: [https://contextiq-rag.streamlit.app/](https://contextiq-rag.streamlit.app/)
+- **Tech Stack**: Python, Streamlit, LangChain, Groq API (Llama 3), Pinecone
 - **Key Concepts**: Vector Databases, RAG Agents, PDF Ingestion
+
+### [Day 25] AI Analyst Application
+A Streamlit app that allows users to upload datasets and ask questions, with the AI agent performing data analysis and visualization.
+
+![AI Analyst Dashboard](csv.png)
+- **GitHub Repo**: [https://github.com/Diluksha-Upeka/ai-analyst](https://github.com/Diluksha-Upeka/ai-analyst)
+- **Tech Stack**: Python, Streamlit, LangChain, Groq API (Llama 3), Pandas, Matplotlib
+- **Key Concepts**: Data Analysis, Visualization, Multi-tool Agents
 
 ## Structure
 - `day01/` - first entry [View Code](./day01/main.py)
@@ -45,17 +66,6 @@ A Streamlit app that allows users to chat with their PDF documents using Retriev
 - `day23/` - Coder Agent with Python REPL [View Code](./day23/coder_agent.py) [View Doc](./day23/README.md)
 - `day24/` - Agent with multiple tools (search, code, calculator) 
 - `day25/` - AI analyst application [View Code](./day25/analyst_app.py) [GitHub Repo](https://github.com/Diluksha-Upeka/ai-analyst)
-
-
-## Day 05 - Resume Optimizer Dashboard
-![Resume Dashboard](day05/dashboard.png)
-
-## Day 10 - Surveillance Video Analysis Dashboard
-[Surveillance Readme](./day10/Surveillance_README.md)
-![Surveillance Dashboard](day10/Surveillance%20dashboard.png)
-
-## Day 20 - ContexIQ RAG Application
-![ContexIQ Dashboard](day20/dashboard.png)
 
 ## Tools Used
 - **Models**: Groq API (Llama 3)
