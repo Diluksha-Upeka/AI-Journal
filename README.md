@@ -4,7 +4,7 @@ Building projects using LangChain, Groq, Computer Vision, and Agents.
 
 ## Featured Projects
 
-### [Day 05] Resume Optimizer
+## Day 05 Resume Optimizer
 A Streamlit dashboard that parses resumes into JSON and generates ATS scores using Llama 3.
 
 ![Resume Dashboard](day05/dashboard.png)
@@ -20,7 +20,7 @@ A Streamlit dashboard that parses resumes into JSON and generates ATS scores usi
 - **Tech Stack**: Python, OpenCV, LangChain, Groq API (Llama 3), Streamlit
 - **Key Concepts**: Real-time video processing, AI-generated alerts, Text-to-Speech
 
-### [Day 20] ContexIQ - RAG Application
+## Day 20 ContexIQ - RAG Application
 A Streamlit app that enables users to chat with PDF documents using Retrieval-Augmented Generation.
 
 ![ContexIQ Dashboard](day20/dashboard.png)
