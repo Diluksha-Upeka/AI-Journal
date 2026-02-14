@@ -66,6 +66,7 @@ A Streamlit app that allows users to upload datasets and ask questions, with the
 - `day23/` - Coder Agent with Python REPL [View Code](./day23/coder_agent.py) [View Doc](./day23/README.md)
 - `day24/` - Agent with multiple tools (search, code, calculator) 
 - `day25/` - AI analyst application [View Code](./day25/analyst_app.py) [GitHub Repo](https://github.com/Diluksha-Upeka/ai-analyst)
+- `day26/` - Added data visualization to analyst app 
 
 ## Tools Used
 - **Models**: Groq API (Llama 3)
@@ -90,6 +91,6 @@ A LangChain agent that uses the Tavily Search tool to fetch real-time informatio
 - pypdf
 - numexpr
 
-``Last updated 13th Feb 2026``
+``Last updated 14th Feb 2026``
 
 
