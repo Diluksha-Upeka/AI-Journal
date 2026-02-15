@@ -17,6 +17,7 @@ A Streamlit dashboard that parses resumes into JSON and generates ATS scores usi
 
 ![Surveillance Dashboard](day10/Surveillance%20dashboard.png)
 
+- **Repo Folder**: [day10](./day10/)
 - **Tech Stack**: Python, OpenCV, LangChain, Groq API (Llama 3), Streamlit
 - **Key Concepts**: Real-time video processing, AI-generated alerts, Text-to-Speech
 
