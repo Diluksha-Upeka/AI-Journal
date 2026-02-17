@@ -30,13 +30,20 @@ A Streamlit app that enables users to chat with PDF documents using Retrieval-Au
 - **Tech Stack**: Python, Streamlit, LangChain, Groq API (Llama 3), Pinecone
 - **Key Concepts**: Vector Databases, RAG Agents, PDF Ingestion
 
-## Day 25 AI Analyst Application
+## Day 25 AI Data Analyst Application
 A Streamlit app that allows users to upload datasets and ask questions, with the AI agent performing data analysis and visualization.
 
 ![AI Analyst Dashboard](csv.png)
 - **GitHub Repo**: [https://github.com/Diluksha-Upeka/ai-analyst](https://github.com/Diluksha-Upeka/ai-analyst)
 - **Tech Stack**: Python, Streamlit, LangChain, Groq API (Llama 3), Pandas, Matplotlib
 - **Key Concepts**: Data Analysis, Visualization, Multi-tool Agents
+
+## Day 27 Voxis - Real-Time Voice Assistant
+A voice assistant that can perform tasks based on user commands, with a brain memory to retain information across sessions.
+
+- **GitHub Repo**: [GitHub - Voxis](https://github.com/Diluksha-Upeka/Voxis.git)
+- **Tech Stack**: Python, SoundDevice, pyttsx3, LangChain, Groq API (Llama 3)
+- **Key Concepts**: Real-time audio processing, Text-to-Speech, Memory Retention
 
 ## Structure
 - `day01/` - first entry [View Code](./day01/main.py)
@@ -68,6 +75,9 @@ A Streamlit app that allows users to upload datasets and ask questions, with the
 - `day24/` - Agent with multiple tools (search, code, calculator) 
 - `day25/` - AI analyst application [View Code](./day25/analyst_app.py) [GitHub Repo](https://github.com/Diluksha-Upeka/ai-analyst)
 - `day26/` - Added data visualization to analyst app 
+- `day27/` - Created a Real-Time Voice Assistant [GitHub Repo](https://github.com/Diluksha-Upeka/Voxis.git)
+- `day28/` - Added Brain Memory to the Voice Assistant
+
 
 ## Tools Used
 - **Models**: Groq API (Llama 3)
@@ -92,6 +102,6 @@ A LangChain agent that uses the Tavily Search tool to fetch real-time informatio
 - pypdf
 - numexpr
 
-``Last updated 14th Feb 2026``
+``Last updated 17th Feb 2026``
 
 
