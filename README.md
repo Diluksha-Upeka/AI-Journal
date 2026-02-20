@@ -77,6 +77,8 @@ A voice assistant that can perform tasks based on user commands, with a brain me
 - `day26/` - Added data visualization to analyst app 
 - `day27/` - Created a Real-Time Voice Assistant [GitHub Repo](https://github.com/Diluksha-Upeka/Voxis.git)
 - `day28/` - Added Brain Memory to the Voice Assistant
+- `day29/` - Agent with voice input and output capabilities
+- `day30/` - Finalizing the Voice Assistant and Documentation
 
 
 ## Tools Used
@@ -102,6 +104,6 @@ A LangChain agent that uses the Tavily Search tool to fetch real-time informatio
 - pypdf
 - numexpr
 
-``Last updated 17th Feb 2026``
+``Last updated 20th Feb 2026``
 
 
